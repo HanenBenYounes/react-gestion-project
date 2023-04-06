@@ -6,4 +6,4 @@ const employeSchema= new mongoose.Schema({
     mail: String,
 })
 const employe = mongoose.model("employe", employeSchema)
-module.export = employe
+module.exports = employe

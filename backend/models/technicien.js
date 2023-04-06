@@ -6,4 +6,4 @@ const technicienSchema= new mongoose.Schema({
     mail: String,
 })
 const technicien = mongoose.model("technicien", technicienSchema)
-module.export = technicien
+module.exports = technicien
