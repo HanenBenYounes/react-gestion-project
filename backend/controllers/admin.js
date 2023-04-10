@@ -22,7 +22,7 @@ exports.delete = async function (req, res) {
   const id = req.params.id;
   try {
     const Admin = await db.findByIdAndDelete(id);
-    res.status(201).send("deleted", Admin);
+    res.status(201).send("deleted");
   } catch (err) {
     console.log(err);
   }
