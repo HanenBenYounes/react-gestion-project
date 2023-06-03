@@ -4,9 +4,10 @@ const capitainSchema = new mongoose.Schema(
   {
     username: String,
     password: String,
-    phone:String,
-    mail:String,
-   
+    phone: String,
+    location: String,
+    email: String,
+    pic: String,
   },
   {
     timestamps: true,

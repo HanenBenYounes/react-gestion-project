@@ -7,8 +7,6 @@ const capitainRoutes = require("./routes/capitainRoutes");
 const diverRoutes = require("./routes/diverRoutes");
 const boatRoutes = require("./routes/boatRoutes");
 
-
-
 const app = express();
 const port = 3000;
 const cors = require("cors");
@@ -21,7 +19,6 @@ app.use("/", technicienRoutes);
 app.use("/", capitainRoutes);
 app.use("/", diverRoutes);
 app.use("/", boatRoutes);
-
 
 mongoose
   .connect(
