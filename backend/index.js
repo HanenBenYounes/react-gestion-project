@@ -22,7 +22,7 @@ app.use("/", boatRoutes);
 
 mongoose
   .connect(
-    "mongodb+srv://hanenhanen:hanen@cluster0.o4x2dtf.mongodb.net/?retryWrites=true&w=majority"
+    "mongodb+srv://hanenhanen:0000@cluster0.o4x2dtf.mongodb.net/?retryWrites=true&w=majority"
   )
   .then(() => {
     console.log("DB Connected");
