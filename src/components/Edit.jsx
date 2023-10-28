@@ -3,7 +3,14 @@ import { SlClose } from "react-icons/sl";
 import { BsPen } from "react-icons/bs";
 
 const Edit = ({ data, showModal, setShowModal }) => {
-  const [info, setInfo] = useState({});
+  const [info, setInfo] = useState({
+    username: "username",
+    password: "password",
+    phone: "phone",
+    email: "email",
+    location: "location",
+    pic: "pic",
+  });
   const [image, setImage] = useState("");
 
   const handleChange = (e) => {
@@ -15,7 +22,7 @@ const Edit = ({ data, showModal, setShowModal }) => {
     if (e.target.id === "wrapper") setShowModal(false);
   };
   useEffect(() => {
-    if (data || data !== {}) {
+    if (data) {
       setInfo({
         username: data.username,
         password: data.password,
@@ -25,19 +32,12 @@ const Edit = ({ data, showModal, setShowModal }) => {
         pic: data.pic,
       });
     } else {
-      setInfo({
-        username: "username",
-        password: "password",
-        phone: "phone",
-        email: "email",
-        location: "location",
-        pic: "pic",
-      });
+      setInfo();
     }
   }, []);
   if (!showModal) return null;
   console.log(showModal);
-  console.log("info", info);
+  console.log("data", data);
   return (
     <div
       className="fixed flex justify-center items-center inset-0 bg-black bg-opacity-25 backdrop-blur-sm"
@@ -90,7 +90,7 @@ const Edit = ({ data, showModal, setShowModal }) => {
                   htmlFor="username"
                   className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
                 >
-                  {info ? info.username : <p> username</p>}
+                  {data ? <>{data.username} </> : <> username</>}
                 </label>
               </div>
               <div className="relative m-2">
@@ -104,7 +104,7 @@ const Edit = ({ data, showModal, setShowModal }) => {
                   htmlFor="phone"
                   className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
                 >
-                  {info ? info.phone : <p> phone</p>}
+                  {data ? <> {data.phone}</> : <> phone</>}
                 </label>
               </div>
               <div className="relative m-2">
@@ -118,7 +118,7 @@ const Edit = ({ data, showModal, setShowModal }) => {
                   htmlFor="email"
                   className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
                 >
-                  {info ? info.email : <p> email</p>}
+                  {data ? <> {data.email}</> : <> email</>}
                 </label>
               </div>
               <div className="relative m-2">
@@ -132,7 +132,7 @@ const Edit = ({ data, showModal, setShowModal }) => {
                   htmlFor="location"
                   className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
                 >
-                  {info ? info.location : <p> location</p>}
+                  {data ? <> {data.location}</> : <> {info.location}</>}
                 </label>
               </div>
             </div>
