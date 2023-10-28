@@ -20,6 +20,7 @@ const Capitain = () => {
   const handleEditModal = (cap) => {
     if (cap) {
       setCapToEdit(cap);
+      setShowModal(true);
     }
     setShowModal(true);
   };
